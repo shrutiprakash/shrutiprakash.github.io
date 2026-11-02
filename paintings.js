@@ -7,6 +7,8 @@ const SITE = {
   name: "Shruti Prakash Art",
   tagline: "Watercolor landscapes, cityscapes & quiet moments",
   email: "shruti.prakash@gmail.com",
+  heroImage: "images/img_6145.jpg", // the large painting at the top of the page
+  heroCaption: "Ghar: This is where I began…", // the words under it
   instagram: "", // optional, e.g. "https://instagram.com/yourname"
 };
 

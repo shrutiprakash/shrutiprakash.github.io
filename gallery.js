@@ -21,27 +21,33 @@
   const groups = GROUPS.filter((g) => PAINTINGS.some((p) => p.group === g.id));
   const order = []; // every painting, in page order, for the previous/next arrows
 
-  for (const g of groups) {
-    const navLink = document.createElement("a");
-    navLink.href = "#" + g.id;
-    navLink.textContent = g.title;
-    $("site-nav").append(navLink);
-  }
-  for (const [id, label] of [["about", "About"], ["contact", "Contact"]]) {
+  // Menu follows the page order: About, the categories, then Contact.
+  const menu = [["about", "About"], ...groups.map((g) => [g.id, g.title]), ["contact", "Contact"]];
+  for (const [id, label] of menu) {
     const navLink = document.createElement("a");
     navLink.href = "#" + id;
     navLink.textContent = label;
     $("site-nav").append(navLink);
   }
 
+  // Each category is a row that opens to show its paintings.
+  // Paintings inside a closed row don't load until it's opened.
   for (const g of groups) {
-    const section = document.createElement("section");
+    const inGroup = PAINTINGS.filter((p) => p.group === g.id);
+    const section = document.createElement("details");
     section.className = "group";
     section.id = g.id;
-    section.innerHTML = `<h2></h2><div class="grid"></div>`;
+    section.innerHTML = `
+      <summary>
+        <h2></h2>
+        <span class="group-count"></span>
+        <span class="group-toggle" aria-hidden="true"></span>
+      </summary>
+      <div class="grid"></div>`;
     section.querySelector("h2").textContent = g.title;
+    section.querySelector(".group-count").textContent =
+      inGroup.length + (inGroup.length === 1 ? " painting" : " paintings");
     const grid = section.querySelector(".grid");
-    const inGroup = PAINTINGS.filter((p) => p.group === g.id);
     grid.style.setProperty("--n", inGroup.length);
 
     for (const p of inGroup) {
@@ -66,6 +72,29 @@
       grid.append(card);
     }
     $("gallery").append(section);
+  }
+
+  // Menu links to a category open that category's row.
+  function openCategory(hash) {
+    const target = hash && document.getElementById(hash.slice(1));
+    if (target && target.tagName === "DETAILS") target.open = true;
+  }
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (link) openCategory(link.hash);
+  });
+  openCategory(location.hash);
+
+  // ----- Opening painting -----
+  const heroIndex = order.findIndex((p) => p.image === SITE.heroImage);
+  if (heroIndex !== -1) {
+    const hero = order[heroIndex];
+    $("hero-img").src = hero.image;
+    $("hero-img").alt = hero.title;
+    $("hero-caption").textContent = SITE.heroCaption || hero.title;
+    $("hero-open").setAttribute("aria-label", "View " + hero.title);
+    $("hero-open").addEventListener("click", () => open(heroIndex));
+    $("hero").hidden = false;
   }
 
   // "Watercolor on paper", or "12 × 16 in · Watercolor on paper" if a size is given.
