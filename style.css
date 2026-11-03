@@ -44,9 +44,28 @@ h2, h3, .brand {
 }
 
 .brand {
-  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  display: inline-block;
   line-height: 1.1;
   text-decoration: none;
+}
+
+/* Line 1: "Art by" in a handwritten script. */
+.brand-script {
+  display: block;
+  font-family: "Dancing Script", cursive;
+  font-weight: 500;
+  font-size: clamp(2rem, 5.4vw, 2.8rem);
+  line-height: 1.2;
+}
+
+/* Line 2: the name in clear capitals. */
+.brand-name {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(1.9rem, 6.4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .tagline {
