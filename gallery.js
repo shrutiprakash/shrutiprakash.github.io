@@ -79,6 +79,33 @@
     $("gallery").append(section);
   }
 
+  // Deal each group's paintings into columns left to right (1st, 2nd, 3rd across
+  // the top row, and so on), matching the column counts in style.css.
+  const grids = [...document.querySelectorAll(".grid")].map((grid) => ({
+    grid,
+    cards: [...grid.children],
+  }));
+  function columnsFor(count) {
+    const max = matchMedia("(max-width: 640px)").matches ? 1
+      : matchMedia("(max-width: 1000px)").matches ? 2 : 3;
+    return Math.min(max, count);
+  }
+  function layOut() {
+    for (const { grid, cards } of grids) {
+      const n = columnsFor(cards.length);
+      if (grid.childElementCount === n && grid.firstElementChild.classList.contains("grid-col")) continue;
+      const cols = Array.from({ length: n }, () => {
+        const col = document.createElement("div");
+        col.className = "grid-col";
+        return col;
+      });
+      cards.forEach((card, i) => cols[i % n].append(card));
+      grid.replaceChildren(...cols);
+    }
+  }
+  layOut();
+  addEventListener("resize", layOut);
+
   // Menu links to a category open that category's row.
   function openCategory(hash) {
     const target = hash && document.getElementById(hash.slice(1));

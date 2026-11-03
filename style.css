@@ -1,8 +1,8 @@
 :root {
   --paper: #f8f4ec;
   --paper-deep: #efe8dc;
-  --ink: #3b3936;
-  --ink-soft: #6f6a63;
+  --ink: #2b2927;
+  --ink-soft: #4f4a44;
   --line: #e2d9cb;
   --available: #5e7a5b;
   --sold: #a0675a;
@@ -21,7 +21,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -54,7 +54,8 @@ h2, h3, .brand {
   color: var(--ink-soft);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.2rem;
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 
 .site-nav {
@@ -65,7 +66,7 @@ h2, h3, .brand {
 }
 
 .site-nav a {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
@@ -106,7 +107,8 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
   margin: 20px 0 0;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.15rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   color: var(--ink-soft);
 }
 
@@ -142,7 +144,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
 .group-count {
   margin-left: auto;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -175,9 +177,10 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
   margin: 12px 0 0;
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: var(--ink);
 }
 
 .group-description:empty { display: none; }
@@ -200,20 +203,21 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
   opacity: 0.5;
 }
 
-/* A "masonry" layout: paintings keep their real shape, nothing is cropped. */
-/* --n is the number of paintings in the group, so small groups stay centred. */
+/* Paintings keep their real shape, nothing is cropped. gallery.js deals them
+   into columns left to right, so the first paintings sit across the top row.
+   --n is the number of paintings in the group, so small groups stay centred. */
 .grid {
   --cols: min(3, var(--n, 3));
-  columns: var(--cols);
-  column-gap: 48px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
   max-width: calc(var(--cols) * 380px);
   margin: 0 auto;
 }
 
-.card {
-  break-inside: avoid;
-  margin: 0 0 56px;
-}
+.grid-col { flex: 1 1 0; min-width: 0; }
+
+.card { margin: 0 0 56px; }
 
 .card-image {
   display: block;
@@ -239,7 +243,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
 .card-title {
   font-family: var(--serif);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin: 0;
   line-height: 1.3;
@@ -248,7 +252,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .card-meta, .viewer-meta {
   margin: 4px 0 0;
   color: var(--ink-soft);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .card-price { margin: 6px 0 0; font-size: 0.9rem; }
@@ -285,7 +289,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .about-text {
   max-width: 620px;
   margin: 0 auto;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .contact p { margin: 0 0 10px; color: var(--ink-soft); }
@@ -303,7 +307,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .site-footer {
   text-align: center;
   padding: 32px 20px 48px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
 }
 
@@ -409,7 +413,7 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 /* ---------- Tablets ---------- */
 
 @media (max-width: 1000px) {
-  .grid { --cols: min(2, var(--n, 2)); column-gap: 36px; }
+  .grid { --cols: min(2, var(--n, 2)); gap: 36px; }
   .viewer-body { flex-direction: column; align-items: stretch; gap: 24px; padding: 64px 72px 40px; overflow-y: auto; }
   .viewer-figure { height: auto; max-height: 65vh; flex: 0 0 auto; }
   .viewer-figure img { max-height: 65vh; }
@@ -429,9 +433,9 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
   .hero-image img { width: 100%; max-height: none; }
   .group summary { padding: 24px 2px; }
   .group-head { gap: 14px; }
-  .group-description { font-size: 1.05rem; margin-top: 10px; }
+  .group-description { font-size: 1.2rem; margin-top: 10px; }
   .group summary h2 { font-size: 1.6rem; }
-  .group-count { font-size: 0.68rem; letter-spacing: 0.1em; }
+  .group-count { font-size: 0.72rem; letter-spacing: 0.1em; }
   .group .grid { padding-top: 12px; }
   .about, .contact { padding: 56px 0; }
   .viewer-body { padding: 56px 16px 32px; }
