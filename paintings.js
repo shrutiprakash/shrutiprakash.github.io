@@ -17,15 +17,15 @@ const SITE = {
 // description is shown at the top of the group when it's opened.
 const GROUPS = [
   {
-    id: "landscapes",
-    title: "Landscapes",
-    description: "To be honest, landscapes intimidate me. Standing in front of vast horizons, open skies, and towering trees, it feels nearly impossible to translate that kind of beauty onto a flat sheet of paper. But I’m trying anyway! Think of this collection as my ongoing conversation with the great outdoors—imperfect, experimental, and working toward that “one day.”",
-  },
-  {
     id: "cityscapes",
     title: "Cityscapes",
     open: true,
     description: "Streets, rooftops, and quiet alleyways. These pieces come together from snapshots on my phone, striking scenes I’ve stumbled across, or techniques from artists I admire. They might start with someone else’s perspective or a simple reference photo, but by the time the paint dries, they’re translated through my own eyes, my brush, and my favorite color mixes.",
+  },
+  {
+    id: "landscapes",
+    title: "Landscapes",
+    description: "To be honest, landscapes intimidate me. Standing in front of vast horizons, open skies, and towering trees, it feels nearly impossible to translate that kind of beauty onto a flat sheet of paper. But I’m trying anyway! Think of this collection as my ongoing conversation with the great outdoors—imperfect, experimental, and working toward that “one day.”",
   },
   {
     id: "still-life",
