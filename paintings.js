@@ -13,11 +13,30 @@ const SITE = {
 };
 
 // The groups, in the order they appear on the page.
+// open: true means the group starts expanded when someone arrives.
+// description is shown at the top of the group when it's opened.
 const GROUPS = [
-  { id: "landscapes", title: "Landscapes" },
-  { id: "cityscapes", title: "Cityscapes" },
-  { id: "still-life", title: "Still Life & More" },
-  { id: "travel-journal", title: "Travel Journal" },
+  {
+    id: "landscapes",
+    title: "Landscapes",
+    description: "To be honest, landscapes intimidate me. Standing in front of vast horizons, open skies, and towering trees, it feels nearly impossible to translate that kind of beauty onto a flat sheet of paper. But I’m trying anyway! Think of this collection as my ongoing conversation with the great outdoors—imperfect, experimental, and working toward that “one day.”",
+  },
+  {
+    id: "cityscapes",
+    title: "Cityscapes",
+    open: true,
+    description: "Streets, rooftops, and quiet alleyways. These pieces come together from snapshots on my phone, striking scenes I’ve stumbled across, or techniques from artists I admire. They might start with someone else’s perspective or a simple reference photo, but by the time the paint dries, they’re translated through my own eyes, my brush, and my favorite color mixes.",
+  },
+  {
+    id: "still-life",
+    title: "Still Life & More",
+    description: "My everyday playground. No rigid rules or grand themes here—just pure whim. A piece of fruit on the counter, an interesting ceramic mug, or whatever small, quirky thing caught my eye that morning. It’s where I go when I just want to play with color and paint purely for the joy of it.",
+  },
+  {
+    id: "travel-journal",
+    title: "Travel Journal",
+    description: "Most of these were painted on the move—balancing a travel tin on a rattling train, killing time at an airport gate, or revisiting a snapshot that refused to leave my mind once I got home. Alongside the sketches, I’ve jotted down little journal entries: what made that place unforgettable, the stories behind the scenes, and how it felt to sit right there in that moment.",
+  },
 ];
 
 // Your paintings, in the order they appear within each group.

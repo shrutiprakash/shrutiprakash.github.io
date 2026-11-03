@@ -115,12 +115,16 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .group { border-top: 1px solid var(--line); }
 
 .group summary {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display: block;
   padding: 30px 4px;
   cursor: pointer;
   list-style: none;
+}
+
+.group-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .group summary::-webkit-details-marker { display: none; }
@@ -165,6 +169,18 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 .group-toggle::after { transform: rotate(90deg); }
 
 .group[open] .group-toggle::after { transform: rotate(0deg); }
+
+.group-description {
+  max-width: 720px;
+  margin: 12px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.group-description:empty { display: none; }
 
 .group .grid { padding: 24px 0 32px; }
 
@@ -411,7 +427,9 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
   /* On phones the opening painting runs edge to edge. */
   .hero-image { width: calc(100% + 32px); max-width: none; margin: 0 -16px; box-shadow: none; }
   .hero-image img { width: 100%; max-height: none; }
-  .group summary { padding: 24px 2px; gap: 14px; }
+  .group summary { padding: 24px 2px; }
+  .group-head { gap: 14px; }
+  .group-description { font-size: 1.05rem; margin-top: 10px; }
   .group summary h2 { font-size: 1.6rem; }
   .group-count { font-size: 0.68rem; letter-spacing: 0.1em; }
   .group .grid { padding-top: 12px; }

@@ -30,21 +30,26 @@
     $("site-nav").append(navLink);
   }
 
-  // Each category is a row that opens to show its paintings.
+  // Each category is a row (title, count and description) that opens to show its paintings.
   // Paintings inside a closed row don't load until it's opened.
   for (const g of groups) {
     const inGroup = PAINTINGS.filter((p) => p.group === g.id);
     const section = document.createElement("details");
     section.className = "group";
     section.id = g.id;
+    section.open = Boolean(g.open);
     section.innerHTML = `
       <summary>
-        <h2></h2>
-        <span class="group-count"></span>
-        <span class="group-toggle" aria-hidden="true"></span>
+        <span class="group-head">
+          <h2></h2>
+          <span class="group-count"></span>
+          <span class="group-toggle" aria-hidden="true"></span>
+        </span>
+        <p class="group-description"></p>
       </summary>
       <div class="grid"></div>`;
     section.querySelector("h2").textContent = g.title;
+    section.querySelector(".group-description").textContent = g.description || "";
     section.querySelector(".group-count").textContent =
       inGroup.length + (inGroup.length === 1 ? " painting" : " paintings");
     const grid = section.querySelector(".grid");
