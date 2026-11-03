@@ -19,7 +19,6 @@ const GROUPS = [
   {
     id: "cityscapes",
     title: "Cityscapes",
-    open: true,
     description: "Streets, rooftops, and quiet alleyways. These pieces come together from snapshots on my phone, striking scenes I’ve stumbled across, or techniques from artists I admire. They might start with someone else’s perspective or a simple reference photo, but by the time the paint dries, they’re translated through my own eyes, my brush, and my favorite color mixes.",
   },
   {

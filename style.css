@@ -187,6 +187,33 @@ main { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
 .group .grid { padding: 24px 0 32px; }
 
+/* The note and two buttons at the bottom of an open category. */
+.group-end {
+  text-align: center;
+  padding: 8px 0 64px;
+}
+
+.group-end-note {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.group-end-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 16px;
+}
+
+.group-end .button {
+  background: none;
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
 .about h2, .contact h2 {
   text-align: center;
   font-size: 2.1rem;

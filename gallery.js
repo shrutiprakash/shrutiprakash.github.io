@@ -47,8 +47,16 @@
         </span>
         <p class="group-description"></p>
       </summary>
-      <div class="grid"></div>`;
+      <div class="grid"></div>
+      <div class="group-end">
+        <p class="group-end-note"></p>
+        <div class="group-end-actions">
+          <button class="button" type="button" data-end="home">Back to home</button>
+          <button class="button" type="button" data-end="gallery">Restart the gallery</button>
+        </div>
+      </div>`;
     section.querySelector("h2").textContent = g.title;
+    section.querySelector(".group-end-note").textContent = `You’ve reached the end of ${g.title}.`;
     section.querySelector(".group-description").textContent = g.description || "";
     section.querySelector(".group-count").textContent =
       inGroup.length + (inGroup.length === 1 ? " painting" : " paintings");
@@ -116,6 +124,17 @@
     if (link) openCategory(link.hash);
   });
   openCategory(location.hash);
+
+  // At the end of a category: close every category, then go to the top of
+  // the page ("Back to home") or to the list of categories ("Restart the gallery").
+  document.addEventListener("click", (e) => {
+    const button = e.target.closest("[data-end]");
+    if (!button) return;
+    document.querySelectorAll("details.group").forEach((d) => { d.open = false; });
+    history.replaceState(null, "", location.pathname);
+    if (button.dataset.end === "home") scrollTo(0, 0);
+    else $("gallery").scrollIntoView({ block: "start" });
+  });
 
   // ----- Opening painting -----
   const heroIndex = order.findIndex((p) => p.image === SITE.heroImage);
