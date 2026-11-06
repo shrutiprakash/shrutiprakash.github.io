@@ -63,6 +63,9 @@ const PAINTINGS = [
   { image: "images/img_7335.jpg", group: "landscapes", title: "Misty Lake", medium: "Watercolor on paper", status: "Available", description: "Soft morning mist settling over still water and a quiet shoreline." },
   { image: "images/img_8771.jpg", group: "landscapes", title: "Evening on the Beach", medium: "Watercolor on paper", status: "Available", description: "" },
   { image: "images/img_8776.jpg", group: "landscapes", title: "Boats on the Shore", medium: "Watercolor on paper", status: "Available", description: "" },
+  { image: "images/img_0299.jpg", group: "landscapes", title: "Leaves Among the Boulders", medium: "Watercolor on paper", status: "Available", description: "A young branch reaching up between pale granite boulders." },
+  { image: "images/img_0301.jpg", group: "landscapes", title: "Still Water by the Rocks", medium: "Watercolor on paper", status: "Available", description: "Sunlight catching the dark green water beneath mossy rocks and tall grass." },
+  { image: "images/img_0302.jpg", group: "landscapes", title: "Rocky Shore", medium: "Watercolor on paper", status: "Available", description: "Rust-coloured rocks along a silver sea, with a long headland on the horizon." },
   { image: "images/dsc_0712.jpg", group: "landscapes", title: "Valley Below the Snow Peaks", medium: "Watercolor on paper", status: "Available", description: "A winding path through a green valley toward snow-capped mountains." },
   { image: "images/dsc_0701.jpg", group: "landscapes", title: "Mountain Lake in Autumn", medium: "Watercolor on paper", status: "Available", description: "" },
   { image: "images/img_9537.jpg", group: "landscapes", title: "Mountain Road", medium: "Watercolor on paper", status: "Available", description: "" },
@@ -71,9 +74,6 @@ const PAINTINGS = [
   { image: "images/n12808515_35377351_7546264.jpg", group: "landscapes", title: "Palms and a Houseboat", medium: "Watercolor on paper", status: "Available", description: "" },
   { image: "images/24867_661479278189_12808515_37410456_6691914_n.jpg", group: "landscapes", title: "Cottage in the Garden", medium: "Watercolor on paper", status: "Available", description: "" },
   { image: "images/n12808515_30111728_5365.jpg", group: "landscapes", title: "Barn Under a Stormy Sky", medium: "Watercolor on paper", status: "Available", description: "" },
-  { image: "images/img_0299.jpg", group: "landscapes", title: "Leaves Among the Boulders", medium: "Watercolor on paper", status: "Available", description: "A young branch reaching up between pale granite boulders." },
-  { image: "images/img_0301.jpg", group: "landscapes", title: "Still Water by the Rocks", medium: "Watercolor on paper", status: "Available", description: "Sunlight catching the dark green water beneath mossy rocks and tall grass." },
-  { image: "images/img_0302.jpg", group: "landscapes", title: "Rocky Shore", medium: "Watercolor on paper", status: "Available", description: "Rust-coloured rocks along a silver sea, with a long headland on the horizon." },
 
   // ----- Still Life & More -----
   { image: "images/img_8770.jpg", group: "still-life", title: "Roosters", medium: "Watercolor on paper", status: "Available", description: "" },
