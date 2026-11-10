@@ -178,12 +178,6 @@
     $("viewer-meta").textContent = details(p);
     $("viewer-description").textContent = p.description || "";
     fillPrice($("viewer-price"), $("viewer-status"), p);
-
-    const subject = `Inquiry: ${p.title}`;
-    const body = `Hello Shruti,\n\nI'm interested in your painting "${p.title}". Could you share the price and let me know if it's still available?\n\nThank you,\n`;
-    $("viewer-inquire").href =
-      `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    $("viewer-inquire").hidden = sold;
     $("viewer-sold-note").hidden = !sold;
   }
 
